@@ -8,11 +8,9 @@ TEST(testFilesClass, testSetterAndGetter_1){
 
     //fexpected to fail
     Files* actual= new Files();
-    Files* actual1= new Files();
-    actual1->setPath("mypath1");
     actual->setPath("mypath");
 
-    ASSERT_EQ(actual1->getPath(),actual->getPath());
+    ASSERT_EQ("mypath",actual->getPath());
 
 }
 TEST(testFilesClass,testSetterAndGetterPath_1){

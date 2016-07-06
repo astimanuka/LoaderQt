@@ -22,7 +22,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_browseButton_clicked()
 {
-   // myNewFile= new Files;
     myNewFile->setPath(QFileDialog::getOpenFileName(this,tr("Chose a file"),"/home/","Source Files(*.cpp)"));
     myNewFile->setFile(new QFile(myNewFile->getPath()));
     ui->fileAddress->setText(myNewFile->getPath());
