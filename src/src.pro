@@ -6,10 +6,12 @@ TEMPLATE = app
 TARGET = LoaderQt
 
 SOURCES += main.cpp \
-    mainwindow.cpp 
+    mainwindow.cpp \
+    files.cpp
 
 HEADERS += \
-    mainwindow.h 
+    mainwindow.h \
+    files.h
 
 FORMS += \
     mainwindow.ui
