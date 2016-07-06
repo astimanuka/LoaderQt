@@ -11,6 +11,7 @@ public:
     void setFile(QFile* file);
     QString getPath();
     QFile* getFile();
+    //bool operator !=(string a, string b);
 
 private:
     QFile *myFile;

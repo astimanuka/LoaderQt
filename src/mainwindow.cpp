@@ -30,6 +30,7 @@ void MainWindow::on_browseButton_clicked()
 
 void MainWindow::on_uploadButton_clicked()
 {
+   if(myNewFile->getPath()!="\0"){
     if (!myNewFile->getFile()->open(QIODevice::ReadOnly))
         QMessageBox::information(0,"info",myNewFile->getFile()->errorString());
 
@@ -43,4 +44,6 @@ void MainWindow::on_uploadButton_clicked()
             ui->progressBar->setValue(c);
         }
      ui->fileName->setText(info->completeBaseName()+"."+info->completeSuffix());
+    }else
+       QMessageBox::information(this,"info","Please choose a file",QMessageBox::Ok);
 }
