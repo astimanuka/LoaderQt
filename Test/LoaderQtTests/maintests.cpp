@@ -12,8 +12,6 @@ TEST(testFilesClass, testSetterAndGetter_1){
     actual1->setPath("mypath1");
     actual->setPath("mypath");
 
-
-
     ASSERT_EQ(actual1->getPath(),actual->getPath());
 
 }
