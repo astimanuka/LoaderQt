@@ -1,19 +1,21 @@
 #include "files.h"
 
-Files::Files()
-{
+Files::Files(string p) : filePath(p), size(0) {
+
+    setFileSize(filePath);
 
 }
 
-void Files::setPath(QString path){
-    Files::filePath=path;
+int Files::getFileSize() {
+    return size;
 }
-void Files::setFile(QFile* file){
-    Files::myFile=file;
+
+string Files::getPath() {
+    return filePath;
 }
-QString Files::getPath(){
-    return Files::filePath;
-}
-QFile* Files::getFile(){
-    return Files::myFile;
+
+void Files::setFileSize(string filePath){
+    //this gets the file size to be used on the progress bar
+    ifstream file(filePath, ios::binary | ios::ate);
+    size = file.tellg();
 }

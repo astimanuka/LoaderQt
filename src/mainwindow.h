@@ -6,7 +6,13 @@
 #include<QFileDialog>
 #include<QMessageBox>
 #include<QTextStream>
+#include<QStringList>
 #include"files.h"
+#include"progressbar.h"
+#include"fileloader.h"
+#include <iostream>
+
+
 
 namespace Ui {
 class MainWindow;
@@ -25,9 +31,11 @@ private slots:
 
     void on_uploadButton_clicked();
 
-private:
 
-    Files* myNewFile;
+private:
+    FileLoader *myFileLoader;
+    ProgressBar *myprogress;
+
     Ui::MainWindow *ui;
 };
 

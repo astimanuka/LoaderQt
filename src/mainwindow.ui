@@ -6,28 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>643</width>
-    <height>394</height>
+    <width>682</width>
+    <height>516</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>40</x>
       <y>20</y>
-      <width>561</width>
-      <height>331</height>
+      <width>601</width>
+      <height>451</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="fileName">
+      <widget class="QLabel" name="selectedFiles">
        <property name="text">
-        <string/>
+        <string>Selected Files :</string>
        </property>
       </widget>
      </item>
@@ -35,7 +35,24 @@
       <widget class="QTextBrowser" name="textBrowser"/>
      </item>
      <item>
-      <widget class="QLabel" name="fileAddress">
+      <widget class="QLabel" name="totalFileSize">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="filesLoaded">
+       <property name="text">
+        <string>Files Loaded :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="loadedFilesBrowser"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="totalFileSizeLoaded">
        <property name="text">
         <string/>
        </property>
@@ -70,7 +87,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>643</width>
+     <width>682</width>
      <height>22</height>
     </rect>
    </property>

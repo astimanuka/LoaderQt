@@ -1,21 +1,30 @@
 #ifndef FILES_H
 #define FILES_H
-#include<QFile>
-#include<QString>
+#include <iostream>
+#include <list>
+#include <fstream>
 
-class Files
-{
+using namespace std;
+
+class Files {
+
 public:
-    Files();
-    void setPath(QString path);
-    void setFile(QFile* file);
-    QString getPath();
-    QFile* getFile();
-    //bool operator !=(string a, string b);
+    Files(string p);
+
+    virtual int getFileSize();
+
+
+    virtual string getPath();
 
 private:
-    QFile *myFile;
-    QString filePath;
+    virtual void setFileSize(string filePath) ;
+
+private:
+
+    string filePath;
+    int size;
+
+
 };
 
 #endif // FILES_H
