@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete myFileLoader;
+    delete myprogress;
 }
 
 void MainWindow::on_browseButton_clicked()
