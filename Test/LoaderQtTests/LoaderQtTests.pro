@@ -15,7 +15,16 @@ SOURCES += \
     gtest/src/gtest-death-test.cc \
     gtest/src/gtest-all.cc \
     gtest/src/gtest.cc \
-    ../../src/files.cpp
+    ../../src/files.cpp \
+    ../../src/fileloader.cpp \
+    ../../src/progressbar.cpp \
+    ../../src/subject.cpp \
+    ../../src/observer.cpp
 
 HEADERS += \
-    ../../src/files.h
+    ../../src/files.h \
+    ../../src/fileloader.h \
+    ../../src/progressbar.h \
+    ../../src/subject.h \
+    ../../src/observer.h
+

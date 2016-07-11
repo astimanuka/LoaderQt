@@ -14,12 +14,12 @@ class FileLoader : public Subject {
 public:
     FileLoader() : totalSize(0), fileCounter(0) { }
 
+    ~FileLoader(){}
+
     void putFiles(Files files) {
         fileList.push_back(files);
-        //tmp = files;
         fileCounter++;
         //notify();//disabled cause it will be used the upload button
-        //observer->update(files);
     }
 
     int getFileCounter() {
@@ -42,11 +42,6 @@ public:
         return totalSize;
     }
 
-  //  void uploadObserver(){
-    //       for(auto it=fileList.begin();it!=fileList.end();it++){//to be reviewed
-      //         observer->update(*it);
-        //   }
-       //}
 
     Files getFileInPosition(int position){
         return fileList[position];
@@ -69,6 +64,7 @@ public:
 
     }
 
+
 private:
 
     void totalFilesSize() {
@@ -81,7 +77,7 @@ private:
     int totalSize;
     int fileCounter;
     Observer *observer;
-    vector <Files> fileList;
+    vector<Files> fileList;
 
 
 };
