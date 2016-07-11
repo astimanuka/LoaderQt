@@ -12,12 +12,6 @@ void ProgressBar::display(){//todo this is just for testin the list and printing
         cout << "path : " << (*itr).getPath() << " - size : " << (*itr).getFileSize() << endl;
 }
 
-std::string ProgressBar::getDisplay(){//todo this is just for testin the list and printing the objects inside it
-
-    for (auto itr = progressFiles.begin(); itr != progressFiles.end(); itr++)
-        return (*itr).getPath();
-}
-
 int ProgressBar::getTotalSize(){
     int totalSize = 0;
     for (auto it = progressFiles.begin(); it != progressFiles.end(); it++)

@@ -33,8 +33,11 @@ private slots:
 
 
 private:
+    void uploadButtonClick();
+private:
     FileLoader *myFileLoader;
     ProgressBar *myprogress;
+    int checked;
 
     Ui::MainWindow *ui;
 };

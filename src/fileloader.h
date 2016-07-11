@@ -4,6 +4,7 @@
 
 
 #include <list>
+#include<vector>
 #include "subject.h"
 #include "observer.h"
 #include "files.h"
@@ -41,11 +42,15 @@ public:
         return totalSize;
     }
 
-    void uploadObserver(){
-           for(auto it=fileList.begin();it!=fileList.end();it++){
-               observer->update(*it);
-           }
-       }
+  //  void uploadObserver(){
+    //       for(auto it=fileList.begin();it!=fileList.end();it++){//to be reviewed
+      //         observer->update(*it);
+        //   }
+       //}
+
+    Files getFileInPosition(int position){
+        return fileList[position];
+    }
 
 
     //---------- Functions ovverided from the subject class -------------
@@ -76,7 +81,7 @@ private:
     int totalSize;
     int fileCounter;
     Observer *observer;
-    list <Files> fileList;
+    vector <Files> fileList;
 
 
 };
