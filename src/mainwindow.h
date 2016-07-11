@@ -33,11 +33,13 @@ private slots:
 
 
 private:
+    void browseButtonClick();
     void uploadButtonClick();
 private:
     FileLoader *myFileLoader;
     ProgressBar *myprogress;
-    int checked;
+    int checkedUpload;
+    int checkedBrowse;
 
     Ui::MainWindow *ui;
 };

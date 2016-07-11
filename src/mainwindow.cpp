@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     myFileLoader=new FileLoader();
     myprogress=new ProgressBar(myFileLoader);
-    checked=0;
+    checkedUpload=0;
+    checkedBrowse=0;
 }
 
 MainWindow::~MainWindow()
@@ -20,6 +21,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_browseButton_clicked()
 {
+
+    std::cout<<"\nBrowse Files Loading ..."<<std::endl;
+    if(!checkedBrowse)
+        browseButtonClick();
+    else
+        QMessageBox::information(this,tr("Information"),"You have already browsed , please restart the program !",QMessageBox::Ok);
+
+}
+
+void MainWindow::browseButtonClick(){
     QStringList filePath=QFileDialog::getOpenFileNames(this,tr("Chose a File"),"/home/","Source Files(*.cpp)");
     std::string myFilePath;
 
@@ -34,7 +45,7 @@ void MainWindow::on_browseButton_clicked()
     int totalSize = myFileLoader->getTotalFileSize();
     QString totalSizeString=QString::number(totalSize);
     ui->totalFileSize->setText("Total files size : "+totalSizeString+" bytes");
-
+    checkedBrowse++;
 
 }
 
@@ -42,10 +53,10 @@ void MainWindow::on_browseButton_clicked()
 void MainWindow::on_uploadButton_clicked()
 {
     std::cout<<"\nProgress Bar Loading ..."<<std::endl;
-    if(!checked)
-    uploadButtonClick();
+    if(!checkedUpload)
+        uploadButtonClick();
     else
-        QMessageBox::information(this,tr("Information"),"You have already loaded those files",QMessageBox::Ok);
+        QMessageBox::information(this,tr("Information"),"You have already loaded those files !",QMessageBox::Ok);
 }
 
 void MainWindow::uploadButtonClick(){
@@ -68,7 +79,7 @@ void MainWindow::uploadButtonClick(){
             QString totalSizeString=QString::number(totalSize);
             ui->totalFileSizeLoaded->setText("Total loaded files : "+totalSizeString+" bytes");
         }
-        checked++;
+        checkedUpload++;
 
 
 }
