@@ -33,7 +33,7 @@ void MainWindow::on_browseButton_clicked()
 }
 
 void MainWindow::browseButtonClick(){
-    QStringList filePath=QFileDialog::getOpenFileNames(this,tr("Chose a File"),"/home/","Source Files(*.cpp)");
+    QStringList filePath=QFileDialog::getOpenFileNames(this,tr("Chose a File"),"$HOME/Desktop","Source Files(*.cpp)");
     std::string myFilePath;
 
     for(QStringList::iterator it=filePath.begin();it!=filePath.end();it++){

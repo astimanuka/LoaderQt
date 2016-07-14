@@ -13,7 +13,7 @@ protected:
 public:
     virtual void subscribe(Observer *obs) = 0;
 
-    virtual void unsubscribe() = 0;
+    virtual void unsubscribe(Observer* obs) = 0;
 
     virtual void notify() = 0;
 
