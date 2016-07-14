@@ -103,7 +103,7 @@ TEST(testProgressBarClass, testProgressiveLoad){
     fileLoader->putFiles(*actual3);
     fileLoader->putFiles(*actual4);
 
-    cout<<"\t\nTesting the loading of files :\n"<<endl;
+    cout<<"\t\nTesting the upload progress of files :\n"<<endl;
     int actualProgress=0;
     int actualFileSizeLoad=fileLoader->getTotalFileSize();
     for(int i=0;i<fileLoader->getFileCounter();i++){

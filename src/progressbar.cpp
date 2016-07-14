@@ -1,7 +1,7 @@
 #include "progressbar.h"
 
 ProgressBar::~ProgressBar() {
-    subject->unsubscribe();
+    subject->unsubscribe(this);
 }
 
 ProgressBar::ProgressBar(FileLoader *s) : subject(s),actualCounter(0) {

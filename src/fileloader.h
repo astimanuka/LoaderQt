@@ -38,7 +38,6 @@ public:
     int getTotalFileSize() {
 
         totalFilesSize(); //call the calculator of file sizes
-
         return totalSize;
     }
 
@@ -51,17 +50,20 @@ public:
     //---------- Functions ovverided from the subject class -------------
 
 
-    virtual void subscribe(Observer *obs) override {
-        observer = obs;
+    virtual void subscribe(Observer* obs) override {
+    observer.push_back(obs);
+        //observer = obs;
     }
 
-    virtual void unsubscribe() override {
-        observer = nullptr;
+    virtual void unsubscribe(Observer* obs) override {
+        observer.remove(obs);
+        //observer = nullptr;
     }
 
     virtual void notify() override { // this causes an error
-        observer->update(getLastFile());
-
+        for(auto it=observer.begin();it!=observer.end();it++){
+                    (*it)->update(getLastFile());
+                }
     }
 
 
@@ -76,7 +78,8 @@ private:
     //Files tmp;
     int totalSize;
     int fileCounter;
-    Observer *observer;
+    list<Observer*> observer;
+    //Observer *observer;
     vector<Files> fileList;
 
 
