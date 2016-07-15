@@ -39,14 +39,22 @@ void MainWindow::browseButtonClick(){
     for(QStringList::iterator it=filePath.begin();it!=filePath.end();it++){
         myFilePath=(*it).toUtf8().constData(); //this converts the qstring into a string
         Files files(myFilePath);
+
+// saves all the files on a list on the fileloader class
         myFileLoader->putFiles(files);
+
+// displays the file paths
         ui->textBrowser->append(*it);
-        std::cout<<"added paths : "<< myFilePath<<" -- position :"<<myFileLoader->getFileCounter()<<std::endl;
+
+        // for debugging only
+        std::cout<<"added paths : "<<myFilePath<<std::endl;
 
     }
-    int totalSize = myFileLoader->getTotalFileSize();
-    QString totalSizeString=QString::number(totalSize);
-    ui->totalFileSize->setText("Total files size : "+totalSizeString+" bytes");
+
+// displays a label with the total file size that will be loaded
+    ui->totalFileSize->setText("Total files size : "+QString::number(myFileLoader->getTotalFileSize())+" bytes");
+
+// button browse is clicked once
     checkedBrowse=true;
 
 }
@@ -54,7 +62,8 @@ void MainWindow::browseButtonClick(){
 
 void MainWindow::on_uploadButton_clicked()
 {
-    std::cout<<"\nProgress Bar Loading ..."<<std::endl;
+    std::cout<<"\nProgress Bar Loading ..."<<std::endl;// for debugging only
+
     if(!checkedUpload)
         uploadButtonClick();
     else
@@ -63,8 +72,10 @@ void MainWindow::on_uploadButton_clicked()
 
 void MainWindow::uploadButtonClick(){
 
+// this is a member function on the progress bar class that loads a new window with progressive load of files.
     myprogress->updateProgressValue();
 
+// the upload button is clickable just once , else diplays a message box .
     checkedUpload=true;
 
 }

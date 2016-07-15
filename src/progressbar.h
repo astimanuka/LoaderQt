@@ -25,7 +25,6 @@ public:
 
     void updateProgressValue();
 
-
 // overrided functions from the Observer class
 
     void update(Files file)override{
