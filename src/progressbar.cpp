@@ -21,7 +21,7 @@ ProgressBar::ProgressBar(FileLoader *s) : subject(s),actualCounter(0),progressBa
 // if we want to show the load window before all the files are loaded
 //  we should uncoment the function call below
 
-    //wrapper->show();
+    wrapper->show();
 
 }
 
@@ -52,7 +52,7 @@ int ProgressBar::getTotalSize(){
 void ProgressBar::updateProgressValue(){
 
 //if we want to show the new window if the button Upload is pressed this will be uncomented
-    wrapper->show();
+    //wrapper->show();
 
     float fileCounter= subject->getFileCounter();
     float percentProgress= (float)100/subject->getFileCounter();
