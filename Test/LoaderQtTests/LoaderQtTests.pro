@@ -1,8 +1,11 @@
-CONFIG += console c++11
+CONFIG += console gui core gpl c++11
+QT += widgets
+
 
 INCLUDEPATH += "gtest/include"
 INCLUDEPATH += "gtest/"
 INCLUDEPATH += "../../"
+
 
 
 SOURCES += \
@@ -26,5 +29,4 @@ HEADERS += \
     ../../src/fileloader.h \
     ../../src/progressbar.h \
     ../../src/subject.h \
-    ../../src/observer.h
-
+    ../../src/observer.h \

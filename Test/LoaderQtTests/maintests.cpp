@@ -5,6 +5,8 @@
 #include "../../src/fileloader.h"
 #include "../../src/progressbar.h"
 #include <iostream>
+
+
 using namespace std;
 
 //---------------------------------testing the files class----------------------
@@ -16,6 +18,7 @@ TEST(testFilesClass, testGetPath){
     ASSERT_EQ("/home/astimanuka/Desktop/main.cpp",actual->getPath());
 
 }
+
 TEST(testFilesClass,testGetSize){
 
     Files* actual= new Files("/home/astimanuka/Desktop/main.cpp");
