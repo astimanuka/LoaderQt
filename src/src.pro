@@ -9,9 +9,9 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     files.cpp \
     subject.cpp \
-    observer.cpp \
     progressbar.cpp \
-    fileloader.cpp
+    fileloader.cpp \
+    observer.cpp
 
 HEADERS += \
     mainwindow.h \

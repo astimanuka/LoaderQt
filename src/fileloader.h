@@ -4,7 +4,7 @@
 
 
 #include <list>
-#include<vector>
+#include <vector>
 #include "subject.h"
 #include "observer.h"
 #include "files.h"
@@ -12,74 +12,41 @@
 class FileLoader : public Subject {
 
 public:
-    FileLoader() : totalSize(0), fileCounter(0) { }
+    FileLoader();
 
-    ~FileLoader(){}
+    ~FileLoader();
 
-    void putFiles(Files files) {
-        fileList.push_back(files);
-        fileCounter++;
-        //notify();//disabled cause it will be used the upload button
-    }
+    void putFiles(Files files);
 
-    int getFileCounter() {
-        return fileCounter;
-    }
+    int getFileCounter();
 
-    void display() {
-        for (auto itr = fileList.begin(); itr != fileList.end(); itr++)
-            cout << "path : " << (*itr).getPath() << " - size : " << (*itr).getFileSize() << endl;
-    }//todo should add another class that displays this function
+    void display();
 
-    Files getLastFile() {
-        return fileList.back();
-    }
+    Files getLastFile();
 
-    int getTotalFileSize() {
-
-        totalFilesSize(); //call the calculator of file sizes
-        return totalSize;
-    }
+    int getTotalFileSize();
 
 
-    Files getFileInPosition(int position){
-        return fileList[position];
-    }
+    Files getFileInPosition(int position);
 
 
     //---------- Functions ovverided from the subject class -------------
 
 
-    virtual void subscribe(Observer* obs) override {
-    observer.push_back(obs);
-        //observer = obs;
-    }
+    virtual void subscribe(Observer* obs) override;
 
-    virtual void unsubscribe(Observer* obs) override {
-        observer.remove(obs);
-        //observer = nullptr;
-    }
+    virtual void unsubscribe(Observer* obs) override;
 
-    virtual void notify() override { // this causes an error
-        for(auto it=observer.begin();it!=observer.end();it++){
-                    (*it)->update(getLastFile());
-                }
-    }
-
+    virtual void notify() override;
 
 private:
 
-    void totalFilesSize() {
-        for (auto it = fileList.begin(); it != fileList.end(); it++)
-            totalSize += (*it).getFileSize();
-    }
+    void totalFilesSize();
 
 private:
-    //Files tmp;
     int totalSize;
     int fileCounter;
     list<Observer*> observer;
-    //Observer *observer;
     vector<Files> fileList;
 
 

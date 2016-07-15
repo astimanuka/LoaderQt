@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     myFileLoader=new FileLoader();
     myprogress=new ProgressBar(myFileLoader);
-    checkedUpload=0;
-    checkedBrowse=0;
+    checkedUpload=false;
+    checkedBrowse=false;
 }
 
 MainWindow::~MainWindow()
@@ -47,7 +47,7 @@ void MainWindow::browseButtonClick(){
     int totalSize = myFileLoader->getTotalFileSize();
     QString totalSizeString=QString::number(totalSize);
     ui->totalFileSize->setText("Total files size : "+totalSizeString+" bytes");
-    checkedBrowse++;
+    checkedBrowse=true;
 
 }
 
@@ -63,26 +63,9 @@ void MainWindow::on_uploadButton_clicked()
 
 void MainWindow::uploadButtonClick(){
 
-        float raportp=(float)100/myFileLoader->getFileCounter();
-        float t=raportp;
-        Files tmp("");
-        for (int i=0;i<myFileLoader->getFileCounter();i++){
-            tmp=myFileLoader->getFileInPosition(i);
-            myprogress->update(tmp);
-            ui->loadedFilesBrowser->append(QString::fromStdString(tmp.getPath()));
-            std::cout<<"loaded path : "<<tmp.getPath()<<" - size : "<<tmp.getFileSize()<<std::endl;
+    myprogress->updateProgressValue();
 
-            //this displays the progressbar
-            ui->progressBar->setValue(t);
-            t+=raportp;
-
-            //this will display the loaded files size int bytes
-            int totalSize = myprogress->getTotalSize();
-            QString totalSizeString=QString::number(totalSize);
-            ui->totalFileSizeLoaded->setText("Total loaded files : "+totalSizeString+" bytes");
-        }
-        checkedUpload++;
-
+    checkedUpload=true;
 
 }
 

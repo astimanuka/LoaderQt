@@ -2,14 +2,16 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include<QFile>
-#include<QFileDialog>
-#include<QMessageBox>
-#include<QTextStream>
-#include<QStringList>
-#include"files.h"
-#include"progressbar.h"
-#include"fileloader.h"
+#include <QFile>
+#include <QProgressBar>
+#include <QProgressDialog>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QStringList>
+#include "files.h"
+#include "progressbar.h"
+#include "fileloader.h"
 #include <iostream>
 
 
@@ -28,19 +30,18 @@ public:
 
 private slots:
     void on_browseButton_clicked();
-
     void on_uploadButton_clicked();
 
 
 private:
     void browseButtonClick();
     void uploadButtonClick();
+
 private:
     FileLoader *myFileLoader;
     ProgressBar *myprogress;
-    int checkedUpload;
-    int checkedBrowse;
-
+    bool checkedUpload;
+    bool checkedBrowse;
     Ui::MainWindow *ui;
 };
 

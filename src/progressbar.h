@@ -5,10 +5,14 @@
 #include "observer.h"
 #include "files.h"
 #include "fileloader.h"
+#include <QProgressBar>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QTextBrowser>
+#include <QLabel>
+#include <QString>
 
-
-class ProgressBar : public Observer {
-
+class ProgressBar : public Observer  {
 
 public:
     ProgressBar(FileLoader *s);
@@ -19,8 +23,11 @@ public:
 
     int getTotalSize() ;
 
+    void updateProgressValue();
 
-    //---------------------overrided functions from the Observer class-----------------
+
+// overrided functions from the Observer class
+
     void update(Files file)override{
         addFiles(file);
     }
@@ -29,8 +36,13 @@ private:
     void addFiles(Files file);
 
 private:
-    FileLoader *subject;
-    int actualCounter;
+    FileLoader* subject;
+    float actualCounter;
+    QProgressBar* progressBar;
+    QVBoxLayout* layout;
+    QTextBrowser* textBrowser;
+    QLabel* textLabel;
+    QWidget* wrapper;
     list <Files> progressFiles;
 
 };
