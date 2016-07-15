@@ -2,9 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QFile>
-#include <QProgressBar>
-#include <QProgressDialog>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>

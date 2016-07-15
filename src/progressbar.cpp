@@ -2,8 +2,9 @@
 
 
 
-ProgressBar::ProgressBar(FileLoader *s) : subject(s),actualCounter(0),progressBar(new QProgressBar())
-  ,layout(new QVBoxLayout()), textBrowser(new QTextBrowser), textLabel(new QLabel()),wrapper(new QWidget()){
+ProgressBar::ProgressBar(FileLoader *s) : subject(s),wrapper(new QWidget()),actualCounter(0),
+    progressBar(new QProgressBar()),layout(new QVBoxLayout()), textBrowser(new QTextBrowser),
+    textLabel(new QLabel()){
 
     subject->subscribe(this);
 
@@ -61,8 +62,6 @@ void ProgressBar::updateProgressValue(){
 
     float fileCounter= subject->getFileCounter();
     float percentProgress= (float)100/subject->getFileCounter();
-    actualCounter=percentProgress;
-
     for (int i=0; i<fileCounter;i++){
         update(subject->getFileInPosition(i));//this updates the observer list
         std::cout<<"loaded path : "<<subject->getFileInPosition(i).getPath();
@@ -86,6 +85,23 @@ void ProgressBar::updateProgressValue(){
     wrapper->close();
 }
 
+// this function is the same as updateProgressValue ,
+// it will be used only for testing with google framework
+void ProgressBar::updateProgressTest(){
+
+        float fileCounter= subject->getFileCounter();
+        float percentProgress= (float)100/subject->getFileCounter();
+        for (int i=0; i<fileCounter;i++){
+            update(subject->getFileInPosition(i));//this updates the observer list
+            std::cout<<"loaded path : "<<subject->getFileInPosition(i).getPath();
+            std::cout<<" - size : "<<subject->getFileInPosition(i).getFileSize()<<std::endl;
+            actualCounter+=percentProgress;
+            std::cout<<"\tLoad : "<<i+1<<"/"<<subject->getFileCounter();
+            std::cout<<" files , memory load : "<<this->getTotalSize()<<"/"<<subject->getTotalFileSize()<<" bytes" <<std::endl;
+
+        }
+
+    }
 
 // this function is used to update the list with objects of type: Files
 void ProgressBar::addFiles(Files file) {

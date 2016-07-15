@@ -1,16 +1,18 @@
 #ifndef PROGRESSBAR_H
 #define PROGRESSBAR_H
 
-
-#include "observer.h"
-#include "files.h"
-#include "fileloader.h"
-#include <QProgressBar>
+//#include <QObject>
+//#include <QApplication>
 #include <QWidget>
+#include <QProgressBar>
 #include <QVBoxLayout>
 #include <QTextBrowser>
 #include <QLabel>
 #include <QString>
+#include "observer.h"
+#include "files.h"
+#include "fileloader.h"
+
 
 class ProgressBar : public Observer  {
 
@@ -25,6 +27,8 @@ public:
 
     void updateProgressValue();
 
+    void updateProgressTest();
+
 // overrided functions from the Observer class
 
     void update(Files file)override{
@@ -36,12 +40,12 @@ private:
 
 private:
     FileLoader* subject;
+    QWidget* wrapper;
     float actualCounter;
     QProgressBar* progressBar;
     QVBoxLayout* layout;
     QTextBrowser* textBrowser;
     QLabel* textLabel;
-    QWidget* wrapper;
     list <Files> progressFiles;
 
 };
