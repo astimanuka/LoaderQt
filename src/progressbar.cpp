@@ -16,8 +16,9 @@ ProgressBar::ProgressBar(FileLoader *s) : subject(s),wrapper(new QWidget()),actu
     layout->addWidget(textLabel);
 
     wrapper->setLayout(layout);
-    wrapper->setFixedWidth(500);
+    wrapper->setFixedWidth(450);
     wrapper->setFixedHeight(350);
+    wrapper->setWindowTitle(QString::fromStdString("Progressive File Loader"));
 
 // if we want to show the load window before all the files are loaded
 //  we should uncoment the function call below
@@ -29,13 +30,7 @@ ProgressBar::ProgressBar(FileLoader *s) : subject(s),wrapper(new QWidget()),actu
 
 ProgressBar::~ProgressBar() {
     subject->unsubscribe(this);
-    delete subject;
-    delete progressBar;
-    delete layout;
-    delete textBrowser;
-    delete textLabel;
-    wrapper->close();
-    delete wrapper;
+
 }
 
 // this is just for testin the list and printing the objects inside it , for debugging
@@ -59,6 +54,7 @@ void ProgressBar::updateProgressValue(){
 
 // if we want to show the new window if the button Upload is pressed this will be uncomented
 //    wrapper->show();
+
 
     float fileCounter= subject->getFileCounter();
     float percentProgress= (float)100/subject->getFileCounter();
@@ -85,6 +81,7 @@ void ProgressBar::updateProgressValue(){
 
 // if we want that this window to be closed after all files are loaded , uncoment below.
 //    wrapper->close();
+
 }
 
 // this function is the same as updateProgressValue ,
@@ -110,3 +107,4 @@ void ProgressBar::addFiles(Files file) {
     progressFiles.push_back(file);
 
 }
+

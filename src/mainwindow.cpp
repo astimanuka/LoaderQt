@@ -63,11 +63,13 @@ void MainWindow::browseButtonClick(){
 void MainWindow::on_uploadButton_clicked()
 {
     std::cout<<"\nProgress Bar Loading ..."<<std::endl;// for debugging only
-
-    if(!checkedUpload)
-        uploadButtonClick();
-    else
-        QMessageBox::information(this,tr("Information"),"You have already loaded those files !",QMessageBox::Ok);
+    if(myFileLoader->getFileCounter()){
+        if(!checkedUpload){
+            uploadButtonClick();
+        }else
+            QMessageBox::information(this,tr("Information"),"You have already loaded those files !",QMessageBox::Ok);
+    }else
+        QMessageBox::information(this,QString::fromStdString("Information"),QString::fromStdString("List is empty !"), QMessageBox::Ok);
 }
 
 void MainWindow::uploadButtonClick(){

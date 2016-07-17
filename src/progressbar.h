@@ -1,8 +1,7 @@
 #ifndef PROGRESSBAR_H
 #define PROGRESSBAR_H
 
-//#include <QObject>
-//#include <QApplication>
+#include <QObject>
 #include <QWidget>
 #include <QProgressBar>
 #include <QVBoxLayout>
@@ -16,6 +15,7 @@
 
 class ProgressBar : public Observer  {
 
+
 public:
     ProgressBar(FileLoader *s);
 
@@ -28,6 +28,8 @@ public:
     void updateProgressValue();
 
     void updateProgressTest();
+
+
 
 // overrided functions from the Observer class
 
