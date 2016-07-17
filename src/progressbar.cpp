@@ -62,6 +62,8 @@ void ProgressBar::updateProgressValue(){
 
     float fileCounter= subject->getFileCounter();
     float percentProgress= (float)100/subject->getFileCounter();
+    actualCounter=percentProgress;
+
     for (int i=0; i<fileCounter;i++){
         update(subject->getFileInPosition(i));//this updates the observer list
         std::cout<<"loaded path : "<<subject->getFileInPosition(i).getPath();
@@ -82,7 +84,7 @@ void ProgressBar::updateProgressValue(){
     }
 
 // if we want that this window to be closed after all files are loaded , uncoment below.
-    wrapper->close();
+//    wrapper->close();
 }
 
 // this function is the same as updateProgressValue ,

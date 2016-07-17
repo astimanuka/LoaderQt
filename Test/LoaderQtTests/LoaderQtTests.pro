@@ -29,4 +29,4 @@ HEADERS += \
     ../../src/fileloader.h \
     ../../src/progressbar.h \
     ../../src/subject.h \
-    ../../src/observer.h \
+    ../../src/observer.h
